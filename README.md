@@ -1,5 +1,5 @@
-# Twitter com Django
+# Twitter with Django
 
-Projeto de um twitter funcional feito em Django, elaborado durante o projeto Busertech para fins academicos
+Design of a functional twitter made with Django, created during the Busertech project for academic purposes
 
 PREVIEW IN PROGRESS

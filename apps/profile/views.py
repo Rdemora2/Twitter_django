@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from apps.notification.utilities import create_notification
 
-from .forms import profileForm
+from .forms import profile
 
 def profile(request, username):
     user = get_object_or_404(User, username=username)
@@ -28,14 +28,14 @@ def profile(request, username):
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
-        form = profileForm(request.POST, request.FILES, instance=request.user.profile)
+        form = profile(request.POST, request.FILES, instance=request.user.profile)
 
         if form.is_valid():
             form.save()
 
             return redirect('profile', username=request.user.username)
     else:
-        form = profileForm(instance=request.user.profile)
+        form = profile(instance=request.user.profile)
     
     context = {
         'user': request.user,
@@ -45,17 +45,17 @@ def edit_profile(request):
     return render(request, 'profile/edit_profile.html', context)
 
 @login_required
-def follow(request, username):
+def follow_oinker(request, username):
     user = get_object_or_404(User, username=username)
 
-    request.user.profile.follows.add(user.profile)
+    request.user.oinkerprProfileofile.follows.add(user.profile)
 
     create_notification(request, user, 'follower')
 
     return redirect('profile', username=username)
 
 @login_required
-def unfollow(request, username):
+def unfollow_oinker(request, username):
     user = get_object_or_404(User, username=username)
 
     request.user.profile.follows.remove(user.profile)

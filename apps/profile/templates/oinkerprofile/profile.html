@@ -1,5 +1,5 @@
 {% extends 'core/base.html' %} {% load humanize %} {% block content %}
-<div class="container" id="profileapp">
+<div class="container" id="profile">
   <div class="columns">
     <div class="column is-12">
       <h1 class="title">{{ user.username }}</h1>
@@ -88,7 +88,7 @@
 {% endblock %} {% block script %}
 <script>
   new Vue({
-      el: '#profileapp',
+      el: '#profile',
       delimiters: ['[[', ']]'],
       data () {
           return {

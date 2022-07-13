@@ -16,10 +16,10 @@ def notifications(request):
         if notification.notification_type == Notification.MESSAGE:
             return redirect('conversation', user_id=notification.created_by.id)
         elif notification.notification_type == Notification.FOLLOWER:
-            return redirect('oinkerprofile', username=notification.created_by.username)
+            return redirect('profile', username=notification.created_by.username)
         elif notification.notification_type == Notification.LIKE:
-            return redirect('oinkerprofile', username=notification.to_user.username)
+            return redirect('profile', username=notification.to_user.username)
         elif notification.notification_type == Notification.MENTION:
-            return redirect('oinkerprofile', username=notification.created_by.username)
+            return redirect('profile', username=notification.created_by.username)
     
     return render(request, 'notification/notifications.html')

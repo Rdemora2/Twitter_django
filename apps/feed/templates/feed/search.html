@@ -32,7 +32,7 @@
 
         {% for oinker in oinkers %}
         <p>
-          <a href="{% url 'oinkerprofile' oinker.username %}"
+          <a href="{% url 'profile' oinker.username %}"
             >{{ oinker.username }}</a
           >
         </p>
@@ -45,8 +45,8 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  {% if oink.created_by.oinkerprofile.avatar %}
-                  <img src="{{ oink.created_by.oinkerprofile.avatar.url }}" />
+                  {% if oink.created_by.profile.avatar %}
+                  <img src="{{ oink.created_by.profile.avatar.url }}" />
                   {% endif %}
                 </p>
               </figure>
@@ -55,8 +55,7 @@
                 <div class="content">
                   <p>
                     <strong
-                      ><a
-                        href="{% url 'oinkerprofile' oink.created_by.username %}"
+                      ><a href="{% url 'profile' oink.created_by.username %}"
                         >{{ oink.created_by.username }}</a
                       ></strong
                     >

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.feed',
     'apps.notification',
-    'apps.oinkerprofile',
+    'apps.profile',
 ]
 
 MIDDLEWARE = [

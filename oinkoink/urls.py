@@ -23,7 +23,7 @@ from apps.conversation.views import conversations, conversation
 from apps.core.views import frontpage, signup
 from apps.feed.views import feed, search
 from apps.notification.views import notifications
-from apps.oinkerprofile.views import oinkerprofile, edit_profile, follow_oinker, unfollow_oinker, followers, follows
+from apps.profile.views import profile, edit_profile, follow_oinker, unfollow_oinker, followers, follows
 
 from apps.conversation.api import api_add_message
 from apps.feed.api import api_add_oink, api_add_like
@@ -47,7 +47,7 @@ urlpatterns = [
     path('notifications/', notifications, name='notifications'),
     path('conversations/', conversations, name='conversations'),
     path('conversations/<int:user_id>/', conversation, name='conversation'),
-    path('u/<str:username>/', oinkerprofile, name='oinkerprofile'),
+    path('u/<str:username>/', profile, name='profile'),
     path('u/<str:username>/followers/', followers, name='followers'),
     path('u/<str:username>/follows/', follows, name='follows'),
     path('u/<str:username>/follow/', follow_oinker, name='follow_oinker'),

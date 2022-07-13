@@ -2,7 +2,7 @@
 <div class="container" id="conversationapp">
   <div class="columns">
     <div class="column is-12">
-      <h1 class="title">Conversation</h1>
+      <h1 class="title">Conversas</h1>
 
       <div class="messages">
         {% for message in conversation.messages.all %}
@@ -62,14 +62,14 @@
         <textarea
           class="textarea"
           v-model="content"
-          placeholder="Your message"
+          placeholder="Sua mensagem"
         ></textarea>
       </div>
     </div>
 
     <div class="field">
       <div class="control">
-        <button class="button is-success">Send</button>
+        <button class="button is-success">Enviar</button>
       </div>
     </div>
   </form>
@@ -83,7 +83,7 @@
       return {
         messages: [],
         content: "",
-        oinker: "{{ request.user.username }}",
+        user: "{{ request.user.username }}",
         created_at: "Now",
         avatar:
           "{% if request.user.profile.avatar %}{{ request.user.profile.avatar.url }}{% endif %}",
@@ -94,7 +94,7 @@
         if (this.content.length > 0) {
           var message = {
             content: this.content,
-            oinker: this.oinker,
+            user: this.oinker,
             created_at: this.created_at,
             avatar: this.avatar,
             conversation_id: "{{ conversation.id }}",

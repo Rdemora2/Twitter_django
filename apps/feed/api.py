@@ -10,7 +10,7 @@ from apps.notification.utilities import create_notification
 from .models import Oink, Like
 
 @login_required
-def api_add_oink(request):
+def api_add(request):
     data = json.loads(request.body)
     body = data['body']
 

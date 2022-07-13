@@ -2,10 +2,10 @@
 <div class="container">
   <div class="columns">
     <div class="column is-12">
-      <h1 class="title">Notifications</h1>
+      <h1 class="title">Notificações</h1>
 
       {% if not notifications %}
-      <p>You have no notifications!</p>
+      <p>Você não tem novas notificações!</p>
       {% endif %}
 
       <div class="wrapper-oinks">
@@ -26,8 +26,8 @@
                 <a
                   href="{% url 'notifications' %}?goto=conversation&notification={{ notification.id }}"
                 >
-                  <strong>{{ notification.created_by.username }}</strong> sent
-                  you a message<br />
+                  <strong>{{ notification.created_by.username }}</strong> te
+                  enviou uma mensagem<br />
                   <small>{{ notification.created_at|naturaltime }}</small>
                 </a>
                 {% elif notification.notification_type == 'follower' %}
@@ -35,15 +35,15 @@
                   href="{% url 'notifications' %}?goto=profile&notification={{ notification.id }}"
                 >
                   <strong>{{ notification.created_by.username }}</strong>
-                  started following you<br />
+                  começou a te seguir<br />
                   <small>{{ notification.created_at|naturaltime }}</small>
                 </a>
                 {% elif notification.notification_type == 'like' %}
                 <a
                   href="{% url 'notifications' %}?goto=profile&notification={{ notification.id }}"
                 >
-                  <strong>{{ notification.created_by.username }}</strong> liked
-                  an oink you wrote<br />
+                  <strong>{{ notification.created_by.username }}</strong> curtiu
+                  seu tweet<br />
                   <small>{{ notification.created_at|naturaltime }}</small>
                 </a>
                 {% elif notification.notification_type == 'mention' %}
@@ -51,7 +51,7 @@
                   href="{% url 'notifications' %}?goto=profile&notification={{ notification.id }}"
                 >
                   <strong>{{ notification.created_by.username }}</strong>
-                  mentioned you in an oink<br />
+                  mencionou você em um tweet<br />
                   <small>{{ notification.created_at|naturaltime }}</small>
                 </a>
                 {% endif %}

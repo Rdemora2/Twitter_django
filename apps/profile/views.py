@@ -45,17 +45,17 @@ def edit_profile(request):
     return render(request, 'profile/edit_profile.html', context)
 
 @login_required
-def follow_oinker(request, username):
+def follow(request, username):
     user = get_object_or_404(User, username=username)
 
-    request.user.oinkerprProfileofile.follows.add(user.profile)
+    request.user.profile.follows.add(user.profile)
 
     create_notification(request, user, 'follower')
 
     return redirect('profile', username=username)
 
 @login_required
-def unfollow_oinker(request, username):
+def unfollow(request, username):
     user = get_object_or_404(User, username=username)
 
     request.user.profile.follows.remove(user.profile)

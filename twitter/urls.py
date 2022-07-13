@@ -23,10 +23,10 @@ from apps.conversation.views import conversations, conversation
 from apps.core.views import frontpage, signup
 from apps.feed.views import feed, search
 from apps.notification.views import notifications
-from apps.profile.views import profile, edit_profile, follow_oinker, unfollow_oinker, followers, follows
+from apps.profile.views import profile, edit_profile, follow, unfollow, followers, follows
 
 from apps.conversation.api import api_add_message
-from apps.feed.api import api_add_oink, api_add_like
+from apps.feed.api import api_add, api_add_like
 
 urlpatterns = [
     #
@@ -50,14 +50,14 @@ urlpatterns = [
     path('u/<str:username>/', profile, name='profile'),
     path('u/<str:username>/followers/', followers, name='followers'),
     path('u/<str:username>/follows/', follows, name='follows'),
-    path('u/<str:username>/follow/', follow_oinker, name='follow_oinker'),
-    path('u/<str:username>/unfollow/', unfollow_oinker, name='unfollow_oinker'),
+    path('u/<str:username>/follow/', follow, name='follow'),
+    path('u/<str:username>/unfollow/', unfollow, name='unfollow'),
 
 
     #
     # API
 
-    path('api/add_oink/', api_add_oink, name='api_add_oink'),
+    path('api/add/', api_add, name='api_add'),
     path('api/add_like/', api_add_like, name='api_add_like'),
     path('api/add_message/', api_add_message, name='api_add_message'),
 

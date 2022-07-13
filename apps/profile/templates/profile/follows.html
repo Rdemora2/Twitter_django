@@ -2,9 +2,9 @@
 <div class="container">
   <div class="columns">
     <div class="column is-12">
-      <h1 class="title">Follows - {{ user.username }}</h1>
+      <h1 class="title">Seguindo - {{ user.username }}</h1>
 
-      <p>Num: {{ user.profile.follows.count }}</p>
+      <p>Você segue {{ user.profile.follows.count }} pessoas</p>
     </div>
   </div>
 
@@ -17,7 +17,7 @@
         >
       </p>
       {% empty %} {% if request.user == user %}
-      <p>You don't follow anyone!</p>
+      <p>Você ainda não segue ninguém!</p>
       {% else %}
       <p>{{ user.username }} isnt't following anyone!</p>
       {% endif %} {% endfor %}

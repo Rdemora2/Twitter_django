@@ -14,31 +14,27 @@
 
       <p>
         <a href="{% url 'followers' user.username %}"
-          >Followers: {{ user.profile.followed_by.count }}</a
+          >Seguidores: {{ user.profile.followed_by.count }}</a
         >
       </p>
       <p>
         <a href="{% url 'follows' user.username %}"
-          >Follows: {{ user.profile.follows.count }}</a
+          >Seguindo: {{ user.profile.follows.count }}</a
         >
       </p>
 
       {% if user != request.user %}
       <a href="{% url 'conversation' user.id %}" class="button is-info"
-        >Send message</a
+        >Enviar mensagem</a
       >
 
       {% if request.user.profile in user.profile.followed_by.all %}
-      <a
-        href="{% url 'unfollow_oinker' user.username %}"
-        class="button is-danger"
-        >Unfollow</a
+      <a href="{% url 'unfollow' user.username %}" class="button is-danger"
+        >Parar de seguir</a
       >
       {% else %}
-      <a
-        href="{% url 'follow_oinker' user.username %}"
-        class="button is-success"
-        >Follow</a
+      <a href="{% url 'follow' user.username %}" class="button is-success"
+        >Seguir</a
       >
       {% endif %} {% endif %}
     </div>

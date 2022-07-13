@@ -9,14 +9,14 @@
               <textarea
                 class="textarea"
                 v-model="body"
-                placeholder="What are you oinking?"
+                placeholder="Em que você está pensando?"
               ></textarea>
             </div>
           </div>
 
           <div class="field">
             <div class="control">
-              <button class="button is-success">Submit</button>
+              <button class="button is-success">Twettar</button>
             </div>
           </div>
         </form>
@@ -70,11 +70,13 @@
                   <a
                     @click="likeOink({{ oink.id}})"
                     v-if="!liked_oinks.includes({{ oink.id }})"
-                    >Like</a
+                    >Curtir</a
                   >
-                  <span v-if="liked_oinks.includes({{ oink.id }})">Liked</span>
+                  <span v-if="liked_oinks.includes({{ oink.id }})"
+                    >Curtido</span
+                  >
                   <small id="likes-{{ oink.id }}"
-                    >{{ oink.likes.count }} likes</small
+                    >{{ oink.likes.count }} curtidas</small
                   >
                 </p>
               </div>
